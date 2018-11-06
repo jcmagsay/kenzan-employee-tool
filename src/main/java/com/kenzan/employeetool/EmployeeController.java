@@ -1,11 +1,9 @@
 package com.kenzan.employeetool;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class EmployeeController {
@@ -14,16 +12,17 @@ public class EmployeeController {
     private EmployeeRepository repository;
 
     @RequestMapping(method=RequestMethod.GET, value="/employee")
-    public Iterable<Employee> employee() {
+    public List<Employee> employee() {
         return repository.findAll();
     }
 
     @RequestMapping(method=RequestMethod.POST, value="/employee")
-    public String save(@RequestBody Employee employee) {
-        repository.save(employee);
+    public String saveAll(@RequestBody Iterable<Employee> employeeList) {
+        repository.saveAll(employeeList);
 
-        return employee.getId();
+        return "Employees saved!";
     }
+
 
     @RequestMapping(method=RequestMethod.GET, value="/employee/{id}")
     public Employee show(@PathVariable String id) {

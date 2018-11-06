@@ -10,8 +10,8 @@ public class Employee {
     public String firstName;
     public String lastName;
     public String middleInitial;
-    public Date dateOfBirth;
-    public Date dateOfEmployment;
+    public Long dateOfBirth;
+    public Long dateOfEmployment;
     public Boolean employmentStatus;
 
     public Employee() {}
@@ -20,8 +20,8 @@ public class Employee {
         String firstName,
         String lastName,
         String middleInitial,
-        Date dateOfBirth,
-        Date dateOfEmployment,
+        Long dateOfBirth,
+        Long dateOfEmployment,
         Boolean employmentStatus
     ) {
         this.firstName = firstName;
@@ -64,19 +64,19 @@ public class Employee {
         this.middleInitial = middleInitial;
     }
 
-    public Date getDateOfBirth() {
+    public Long getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(Long dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Date getDateOfEmployment() {
+    public Long getDateOfEmployment() {
         return dateOfEmployment;
     }
 
-    public void setDateOfEmployment(Date dateOfEmployment) {
+    public void setDateOfEmployment(Long dateOfEmployment) {
         this.dateOfEmployment = dateOfEmployment;
     }
 
