@@ -1,8 +1,5 @@
 # Employee Tool
-
 This tool allows to manage users for an application with ease
-
-The tool is viewable at: http://
 
 ## Dependencies
 * Homebrew
@@ -21,29 +18,35 @@ https://gradle.org/install/
 ```sh
 $ git clone https://github.com/jcmagsay/kenzan-employee-tool.git
 $ cd kenzan-employee-tool
-$ gradle tasks --all
-$ ./gradlew stage
-$ heroku local web
+$ mongod
+
+# In another tab
+$ cd kenzan-employee-tool
+$ gradle build bootRun
 ```
+Your app should now be running on [localhost:8080](http://localhost:8080/).
 
-Your app should now be running on [localhost:5000](http://localhost:8080/).
+## Using Endpoints
+Endpoints are available for local development environment using postman:
+https://www.getpostman.com/collections/a5c565a954989c660672
+**Note: Some endpoints are dependent on data after records are entered into DB**
 
-If you're going to use a database, ensure you have a local `.env` file that reads something like this:
 
-```
-DATABASE_URL=postgres://localhost:5432/gradle_database_name
-```
+## Outstanding Features to be Developed
+* Allow Flexibility in Endpoints
+* Write Test for Endpoints
+* Create better directory structure
+* Ensure data types are proper for scalability
+* Ensure endpoints cover all happy and unhappy paths
+* Utility methods if necessary
+* Webpack for UI build bundling
+* Create React Application for UI
+* [WIP] Spin up app on Heroku using Java and Gradle build packs with MongDB plugin
 
-## Deploying to Heroku
 
-```sh
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-
-## Documentation
-
-For more information about using Java on Heroku, see these Dev Center articles:
-
-- [Java on Heroku](https://devcenter.heroku.com/categories/java)
+## Afterthoughts
+* Gradle was a cool technology to use, but not sure it was the best choice
+* Maven seems to be a better fit for web apps where Gradle is potentially better for building native apps
+* IntelliJ IDEA seems to be the better IDE for Java development
+* A Non-Relational database (MongoDB) was a good choice for the business requirements. It will also allow for a micro-service or server-less architecture in the future.
+* Another choice considered for a non-relational db was DynamoDb
