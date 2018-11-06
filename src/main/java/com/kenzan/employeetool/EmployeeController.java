@@ -23,7 +23,6 @@ public class EmployeeController {
         return "Employees saved!";
     }
 
-
     @RequestMapping(method=RequestMethod.GET, value="/employee/{id}")
     public Employee show(@PathVariable String id) {
         return repository.findById(id).get();
@@ -31,28 +30,34 @@ public class EmployeeController {
 
     @RequestMapping(method=RequestMethod.PUT, value="/employee/{id}")
     public Employee update(@PathVariable String id, @RequestBody Employee employee) {
-        Employee employ = repository.findById(id).get();
-        if(employ.getFirstName() != null)
-            employ.setFirstName(employ.getFirstName());
-        if(employ.getLastName() != null)
-            employ.setLastName(employ.getLastName());
-        if(employ.getMiddleInitial() != null)
-            employ.setMiddleInitial(employ.getMiddleInitial());
-        if(employ.getDateOfBirth() != null)
-            employ.setDateOfBirth(employ.getDateOfBirth());
-        if(employ.getDateOfEmployment() != null)
-            employ.setDateOfEmployment(employ.getDateOfEmployment());
-        if(employ.getEmploymentStatus() != null)
-            employ.setEmploymentStatus(employ.getEmploymentStatus());
-        repository.save(employ);
-        return employee;
+        Employee e = repository.findById(id).get();
+        if(employee.getFirstName() != null)
+            e.setFirstName(employee.getFirstName());
+        if(employee.getLastName() != null)
+            e.setLastName(employee.getLastName());
+        if(employee.getMiddleInitial() != null)
+            e.setMiddleInitial(employee.getMiddleInitial());
+        if(employee.getDateOfBirth() != null)
+            e.setDateOfBirth(employee.getDateOfBirth());
+        if(employee.getDateOfEmployment() != null)
+            e.setDateOfEmployment(employee.getDateOfEmployment());
+        if(employee.getEmploymentStatus() != null)
+            e.setEmploymentStatus(employee.getEmploymentStatus());
+
+        repository.save(e);
+
+        return e;
     }
 
     @RequestMapping(method=RequestMethod.DELETE, value="/employee/{id}")
     public String delete(@PathVariable String id) {
-        Employee employee = repository.findById(id).get();
-        repository.delete(employee);
+        Employee e = repository.findById(id).get();
 
-        return "employee deleted";
+        if(e != null)
+            e.setEmploymentStatus(false);
+
+        repository.save(e);
+
+        return String.format("employee deleted: %s", id);
     }
 }
