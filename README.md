@@ -52,3 +52,15 @@ https://www.getpostman.com/collections/a5c565a954989c660672
 * IntelliJ IDEA seems to be the better IDE for Java development
 * A Non-Relational database (MongoDB) was a good choice for the business requirements. It will also allow for a micro-service or server-less architecture in the future.
 * Another choice considered for a non-relational db was DynamoDb
+
+## Potential Issues
+
+### MongoDB Related Issues
+If `data/db` doesn't exist
+```sh
+$ cd kenzan-employee-tool
+$ mkdir -p /data/db
+$ mongod
+```
+If issues persist, this article should help:
+https://stackoverflow.com/questions/26305279/dont-want-to-have-to-start-mongod-with-sudo-mongod
