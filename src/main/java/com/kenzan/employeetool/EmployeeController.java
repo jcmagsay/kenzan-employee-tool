@@ -13,7 +13,9 @@ public class EmployeeController {
 
     @RequestMapping(method=RequestMethod.GET, value="/employee")
     public List<Employee> employee() {
-        return repository.findAll();
+        List<Employee> eList = repository.findAll();
+        eList.removeIf(employee -> employee.employmentStatus.equals(false));
+        return eList;
     }
 
     @RequestMapping(method=RequestMethod.POST, value="/employee")
@@ -25,7 +27,8 @@ public class EmployeeController {
 
     @RequestMapping(method=RequestMethod.GET, value="/employee/{id}")
     public Employee show(@PathVariable String id) {
-        return repository.findById(id).get();
+        Employee e = repository.findById(id).get();
+        return e.employmentStatus ? e : null;
     }
 
     @RequestMapping(method=RequestMethod.PUT, value="/employee/{id}")
@@ -41,8 +44,6 @@ public class EmployeeController {
             e.setDateOfBirth(employee.getDateOfBirth());
         if(employee.getDateOfEmployment() != null)
             e.setDateOfEmployment(employee.getDateOfEmployment());
-        if(employee.getEmploymentStatus() != null)
-            e.setEmploymentStatus(employee.getEmploymentStatus());
 
         repository.save(e);
 
