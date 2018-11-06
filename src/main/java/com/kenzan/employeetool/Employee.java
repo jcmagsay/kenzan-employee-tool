@@ -1,8 +1,8 @@
-package main.java.employee;
+package com.kenzan.employeetool;
 
-import java.text.SimpleDateFormat;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.Date;
 
 public class Employee {
     @Id
@@ -10,8 +10,8 @@ public class Employee {
     public String firstName;
     public String lastName;
     public String middleInitial;
-    public DateTime dateOfBirth;
-    public DateTime dateOfEmployment;
+    public Date dateOfBirth;
+    public Date dateOfEmployment;
     public Boolean employmentStatus;
 
     public Employee() {}
@@ -20,8 +20,8 @@ public class Employee {
         String firstName,
         String lastName,
         String middleInitial,
-        DateTime dateOfBirth,
-        DateTime dateOfEmployment,
+        Date dateOfBirth,
+        Date dateOfEmployment,
         Boolean employmentStatus
     ) {
         this.firstName = firstName;
@@ -64,19 +64,19 @@ public class Employee {
         this.middleInitial = middleInitial;
     }
 
-    public DateTime getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(DateTime dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public DateTime getDateOfEmployment() {
+    public Date getDateOfEmployment() {
         return dateOfEmployment;
     }
 
-    public void setDateOfEmployment(DateTime dateOfEmployment) {
+    public void setDateOfEmployment(Date dateOfEmployment) {
         this.dateOfEmployment = dateOfEmployment;
     }
 
