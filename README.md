@@ -44,7 +44,7 @@ https://www.getpostman.com/collections/a5c565a954989c660672
 * Webpack for UI build bundling
 * Create React Application for UI
 * [WIP] Spin up app on Heroku using Java and Gradle build packs with MongDB plugin
-
+* Comment Code where necessary 
 
 ## Afterthoughts
 * Gradle was a cool technology to use, but not sure it was the best choice
