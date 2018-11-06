@@ -29,6 +29,8 @@ Your app should now be running on [localhost:8080](http://localhost:8080/).
 ## Using Endpoints
 Endpoints are available for local development environment using postman:
 https://www.getpostman.com/collections/a5c565a954989c660672
+
+
 **Note: Some endpoints are dependent on data after records are entered into DB**
 
 
